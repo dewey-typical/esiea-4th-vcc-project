@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: reverseproxy
+  name: reverseproxy
+  namespace: udagram-prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: reverseproxy
+  template:
+    metadata:
+      labels:
+        service: reverseproxy
+    spec:
+      containers:
+      - image: anas9249/udagram-reverseproxy
+        name: reverseproxy
+        imagePullPolicy: Always     
+        resources:      
+        ports:
+        - containerPort: 8080
+      restartPolicy: Always
