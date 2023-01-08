@@ -6,7 +6,7 @@ metadata:
     service: backend-user
   namespace: udagram-prod
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       service: backend-user
